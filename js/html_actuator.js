@@ -28,9 +28,16 @@ HTMLActuator.prototype.actuate = function (grid, metadata) {
     if (metadata.terminated) {
       if (metadata.over) {
         self.message(false); // You lose
+        setTimeout(function() {
+          document.querySelector(".retry-button").click();
+        }, 3000);
       } else if (metadata.won) {
         self.message(true); // You win!
+        setTimeout(function() {
+          document.querySelector(".keep-playing-button").click();
+        }, 3000);
       }
+      ;
     }
 
   });
@@ -131,7 +138,7 @@ HTMLActuator.prototype.updateBestScore = function (bestScore) {
 
 HTMLActuator.prototype.message = function (won) {
   var type    = won ? "game-won" : "game-over";
-  var message = won ? "You win!" : "Game over!";
+  var message = won ? "You win! Continuing in 3 seconds." : "Game over! Restarting in 3 seconds.";
 
   if (typeof ga !== "undefined") {
     ga("send", "event", "game", "end", type, this.score);
