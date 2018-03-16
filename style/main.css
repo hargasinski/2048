@@ -225,10 +225,8 @@ hr {
   -moz-animation-fill-mode: both;
   animation-fill-mode: both; }
   .game-message p {
-    font-size: 60px;
+    font-size: 36px;
     font-weight: bold;
-    height: 60px;
-    line-height: 60px;
     margin-top: 222px; }
   .game-message .lower {
     display: block;
